@@ -26,7 +26,8 @@ public class Main {
             log.info("Querying Prometheus");
             Main.QueryingPrometheus();
             log.info("Sleeping for 5 seconds");
-            log.info("========================================");
+            log.info("******************************************");
+            log.info("******************************************");
             Thread.sleep(5000);
         }
     }

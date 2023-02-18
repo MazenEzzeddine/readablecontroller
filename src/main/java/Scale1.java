@@ -52,12 +52,15 @@ public class Scale1 {
                 lastUpScaleDecision = Instant.now();
             }
         }
+
+        log.info("===================================");
+
     }
 
 
 
     private static int binPackAndScale() {
-        log.info("Inside binPackAndScale ");
+        log.info(" shall we upscale group 1");
         List<Consumer> consumers = new ArrayList<>();
         int consumerCount = 1;
         List<Partition> parts = new ArrayList<>(topicpartitions1);
@@ -95,22 +98,12 @@ public class Scale1 {
         for (Partition partition : parts) {
             int i;
             for ( i = 0; i < consumerCount; i++) {
-                //TODO externalize these choices on the inout to the FFD bin pack
-                // TODO  hey stupid use instatenous lag instead of average lag.
-                // TODO average lag is a decision on past values especially for long DI.
 
                 if ( consumers.get(i).getRemainingLagCapacity() >=  partition.getLag()  &&
                         consumers.get(i).getRemainingArrivalCapacity() >= partition.getArrivalRate()) {
                     consumers.get(i).assignPartition(partition);
-                    // we are done with this partition, go to next
-                  /*  log.info("i {}", i);
-                    log.info("consumerCount {}", consumerCount);*/
-
                     break;
                 }
-                //we have iterated over all the consumers hoping to fit that partition, but nope
-                //we shall create a new consumer i.e., scale up
-
             }
             if (i==consumerCount ) {
                 consumerCount++;
@@ -122,8 +115,7 @@ public class Scale1 {
             }
 
         }
-        log.info(consumers);
-        log.info(" The BP up scaler recommended {}", consumers.size());
+        log.info(" The BP up scaler recommended for group 1{}", consumers.size());
         return consumers.size();
     }
 
@@ -132,7 +124,7 @@ public class Scale1 {
 
 
     private static int binPackAndScaled() {
-        log.info("Inside binPackAndScaled ");
+        log.info(" shall we down scale group 1 ");
         List<Consumer> consumers = new ArrayList<>();
         int consumerCount = 1;
         List<Partition> parts = new ArrayList<>(topicpartitions1);
@@ -168,20 +160,12 @@ public class Scale1 {
         for (Partition partition : parts) {
             int i;
             for ( i = 0; i < consumerCount; i++) {
-                //TODO externalize these choices on the inout to the FFD bin pack
-                // TODO  hey stupid use instatenous lag instead of average lag.
-                // TODO average lag is a decision on past values especially for long DI.
 
                 if ( consumers.get(i).getRemainingLagCapacity() >=  partition.getLag()  &&
                         consumers.get(i).getRemainingArrivalCapacity() >= partition.getArrivalRate()) {
                     consumers.get(i).assignPartition(partition);
-                    // we are done with this partition, go to next
                     break;
                 }
-                //we have iterated over all the consumers hoping to fit that partition, but nope
-                //we shall create a new consumer i.e., scale up
-
-
             }
             if(i == consumerCount) {
                 consumerCount++;
@@ -192,8 +176,7 @@ public class Scale1 {
             }
         }
 
-        log.info(" The BP down scaler recommended {}", consumers.size());
-        log.info("===================================");
+        log.info(" The BP down scaler recommended  for group1{}", consumers.size());
         return consumers.size();
     }
 
