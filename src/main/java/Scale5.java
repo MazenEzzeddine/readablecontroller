@@ -15,7 +15,7 @@ public class Scale5 {
 
     static Instant lastUpScaleDecision = Instant.now();
     static Instant lastDownScaleDecision = Instant.now();
-    static int size = 2;
+    static int size = 1;
     static double dynamicAverageMaxConsumptionRate = 0.0;
     static double wsla = 5.0;
     static List<Consumer> assignment = new ArrayList<>();
@@ -182,7 +182,7 @@ public class Scale5 {
             }
         }
 
-        log.info(" The BP down scaler recommended for group 5{}", consumers.size());
+        log.info(" The BP down scaler recommended for group5 {}", consumers.size());
         return consumers.size();
     }
 

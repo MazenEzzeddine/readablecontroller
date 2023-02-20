@@ -15,9 +15,9 @@ public class Scale1 {
     static ArrayList<Partition> topicpartitions1 = new ArrayList<>();
     static Instant lastUpScaleDecision = Instant.now();
     static Instant lastDownScaleDecision = Instant.now();
-    static int size = 2;
+    static int size = 1;
     static double dynamicAverageMaxConsumptionRate = 0.0;
-    static double wsla = 5.0;
+    static double wsla = 2;//1.66;//5.0;
     static List<Consumer> assignment = new ArrayList<>();
     private static final Logger log = LogManager.getLogger(Scale1.class);
 
@@ -115,7 +115,7 @@ public class Scale1 {
             }
 
         }
-        log.info(" The BP up scaler recommended for group 1{}", consumers.size());
+        log.info(" The BP up scaler recommended for group1 {}", consumers.size());
         return consumers.size();
     }
 
@@ -176,7 +176,7 @@ public class Scale1 {
             }
         }
 
-        log.info(" The BP down scaler recommended  for group1{}", consumers.size());
+        log.info(" The BP down scaler recommended  for group1 {}", consumers.size());
         return consumers.size();
     }
 
