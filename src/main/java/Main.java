@@ -20,15 +20,15 @@ public class Main {
         }
      /*   log.info("Warming for 3 minutes seconds.");
         Thread.sleep(180000);*/
-//        log.info("Warming for 2 minutes seconds.");
-//        Thread.sleep(60*2*1000);
-        while (true) {
+       log.info("Warming for 2 minutes seconds.");
+        Thread.sleep(60*2*1000);
+       while (true) {
             log.info("Querying Prometheus");
             Main.QueryingPrometheus();
-            log.info("Sleeping for 15 seconds");
+            log.info("Sleeping for 5 seconds");
             log.info("******************************************");
             log.info("******************************************");
-            Thread.sleep(30000);
+            Thread.sleep(5000);
         }
     }
 

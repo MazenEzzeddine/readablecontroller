@@ -98,11 +98,6 @@ public class ArrivalRates {
         }
         log.info("totalLag for topic 2 {}", totallag2);
 
-
-      /*  for (int i = 0; i <= 4; i++) {
-            log.info("topic 2 partition {} has the following arrival rate {} and lag {}", i, Scale2p.topicpartitions2.get(i).getArrivalRate(),
-                    Scale2p.topicpartitions2.get(i).getLag());
-        }*/
         log.info("******************");
     }
 
@@ -164,8 +159,8 @@ public class ArrivalRates {
                 e.printStackTrace();
             }
           Scale1.topicpartitions1.get(partition).setArrivalRate(partitionArrivalRate);
-              Scale2.topicpartitions2.get(partition).setArrivalRate(partitionArrivalRate*0.7);
-            Scale5.topicpartitions5.get(partition).setArrivalRate(partitionArrivalRate*0.7);
+              Scale2.topicpartitions2.get(partition).setArrivalRate(partitionArrivalRate/**0.7*/);
+            Scale5.topicpartitions5.get(partition).setArrivalRate(partitionArrivalRate/**0.7*/);
 
            // Scale5p.topicpartitions5.get(partition).setArrivalRate(partitionArrivalRate*0.7);
 
@@ -200,27 +195,29 @@ public class ArrivalRates {
         log.info("totalLag for topic 1 {}", totallag);
         log.info("total actuaLag for topic 1 {}", actualLag);
 
-        for (int i = 0; i <= 4; i++) {
-            Scale2.topicpartitions2.get(i).setArrivalRate(Scale2.topicpartitions2.get(i).getArrivalRate() + ((actualLag*0.7) / (5*1.66)));
+/*        for (int i = 0; i <= 4; i++) {
+            *//*Scale2.topicpartitions2.get(i).setArrivalRate(Scale2.topicpartitions2.get(i).getArrivalRate() + ((actualLag*0.7) / (5*1.66)));
             Scale5.topicpartitions5.get(i).setArrivalRate(Scale5.topicpartitions5.get(i).getArrivalRate() + ((actualLag*0.7)/ (5*1.666)));
             Scale1.topicpartitions1.get(i).setLag((long)(actualLag / (5)));
+
+
+            /*Scale2.topicpartitions2.get(i).setArrivalRate(Scale2.topicpartitions2.get(i).getArrivalRate() + ((actualLag*0.7) / (5*1.66)));
+            Scale5.topicpartitions5.get(i).setArrivalRate(Scale5.topicpartitions5.get(i).getArrivalRate() + ((actualLag*0.7)/ (5*1.666)));
+            Scale1.topicpartitions1.get(i).setLag((long)(actualLag / (5)));
+*//*
 
             log.info( "Scale2.topicpartitions2.get(i) {} , {} ", i, Scale2.topicpartitions2.get(i).getArrivalRate());
             log.info( "Scale5.topicpartitions5.get(i) {} , {} ", i, Scale5.topicpartitions5.get(i).getArrivalRate());
             log.info( " Scale1.topicpartitions1.get(i).setLag  {} , {}", i, Scale1.topicpartitions1.get(i).getLag());
 
 
-        }
-
-
-
-
-
-      /*  for (int i = 0; i <= 4; i++) {
-            log.info("partition {} for topic 1 has the following arrival rate {} and lag {}", i, Scalep.topicpartitions1.get(i).getArrivalRate(),
-                    Scalep.topicpartitions1.get(i).getLag());
         }*/
-        log.info("******************");
+
+
+
+        log.info("Enf of arrival rates computations");
+
+        log.info("=========================================");
     }
 
 

@@ -15,7 +15,7 @@ public class Scale5 {
 
     static Instant lastUpScaleDecision = Instant.now();
     static Instant lastDownScaleDecision = Instant.now();
-    static int size = 1;
+    static int size = 2;
     static double dynamicAverageMaxConsumptionRate = 0.0;
     static double wsla = 5.0;
     static List<Consumer> assignment = new ArrayList<>();

@@ -14,7 +14,7 @@ public class Scale2 {
     static ArrayList<Partition> topicpartitions2 = new ArrayList<>();
     static Instant lastUpScaleDecision = Instant.now();
     static Instant lastDownScaleDecision = Instant.now();
-    static int size = 1;
+    static int size = 2;
     static double dynamicAverageMaxConsumptionRate = 0.0;
     static double wsla = 5.0;
     static List<Consumer> assignment = new ArrayList<>();
@@ -59,7 +59,7 @@ public class Scale2 {
 
 
     private static int binPackAndScale() {
-        log.info(" shall we upscale group 2 ");
+        log.info(" shall we upscale group2 ");
         List<Consumer> consumers = new ArrayList<>();
         int consumerCount = 1;
         List<Partition> parts = new ArrayList<>(topicpartitions2);
@@ -122,7 +122,7 @@ public class Scale2 {
 
 
     private static int binPackAndScaled() {
-        log.info(" shall we down scale group 2 ");
+        log.info(" shall we down scale group2 ");
         List<Consumer> consumers = new ArrayList<>();
         int consumerCount = 1;
         List<Partition> parts = new ArrayList<>(topicpartitions2);

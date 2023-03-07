@@ -15,9 +15,9 @@ public class Scale1 {
     static ArrayList<Partition> topicpartitions1 = new ArrayList<>();
     static Instant lastUpScaleDecision = Instant.now();
     static Instant lastDownScaleDecision = Instant.now();
-    static int size = 1;
+    static int size = 2;
     static double dynamicAverageMaxConsumptionRate = 0.0;
-    static double wsla = 2;//1.66;//5.0;
+    static double wsla = 5;//2;//1.66;//5.0;
     static List<Consumer> assignment = new ArrayList<>();
     private static final Logger log = LogManager.getLogger(Scale1.class);
 
@@ -52,9 +52,7 @@ public class Scale1 {
                 lastUpScaleDecision = Instant.now();
             }
         }
-
         log.info("===================================");
-
     }
 
 
