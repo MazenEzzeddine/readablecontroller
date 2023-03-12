@@ -19,12 +19,10 @@ public class QueryRate {
 
          static AdminClient admin;
 
-
          static {
              props.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
              admin = AdminClient.create(props);
          }
-
 
      static void queryConsumerGroup() throws ExecutionException, InterruptedException {
 
@@ -39,15 +37,11 @@ public class QueryRate {
             log.info("Calling the consumer {} for its consumption rate ", memberDescription.host());
          callForConsumptionRate(memberDescription.host());
         }
-
         log.info("==================================");
-
-
     }
 
 
      static void callForConsumptionRate(String host) {
-
                 ManagedChannel managedChannel = ManagedChannelBuilder.forAddress(host.substring(1), 5002)
                 .usePlaintext()
                 .build();

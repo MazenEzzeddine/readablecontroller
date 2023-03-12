@@ -34,10 +34,6 @@ public class Main {
 
 
     static void QueryingPrometheus() throws ExecutionException, InterruptedException {
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////
-        //
         ArrivalRates.arrivalRateTopic1();
        //ArrivalRates.arrivalRateTopic2();
         //ArrivalRates.arrivalRateTopic3();
@@ -49,12 +45,10 @@ public class Main {
             //QueryRate.queryConsumerGroup();
             Scale1.scaleAsPerBinPack(Scale1.size);
         }
-
         if (Duration.between(Scale2.lastUpScaleDecision, Instant.now()).getSeconds() > 15) {
             //QueryRate.queryConsumerGroup();
             Scale2.scaleAsPerBinPack(Scale2.size);
         }
-
         if (Duration.between(Scale5.lastUpScaleDecision, Instant.now()).getSeconds() > 15) {
            // QueryRate.queryConsumerGroup();
             Scale5.scaleAsPerBinPack(Scale5.size);
